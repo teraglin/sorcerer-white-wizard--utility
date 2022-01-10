@@ -4,9 +4,10 @@ import {
   Box,
 } from "@mui/material";
 
-import { GameDisplay } from "../services/display/GameDisplay";
-import { Energy } from "../services/energy/Energy";
-import { Actions } from "../services/action/Action";
+import { GameDisplay } from "../services/display/Header";
+import { Energy } from "../services/counters/Energy";
+import { Actions } from "../services/counters/Action";
+import { Omens } from "../services/counters/Omens";
 
 const MainPage = (props) => {
   const { mobileView } = props;
@@ -29,6 +30,7 @@ const MainPage = (props) => {
       >
         <Energy />
         <Actions />
+        <Omens />
       </Box>
     </Box>
   )

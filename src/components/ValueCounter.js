@@ -18,8 +18,9 @@ const ValueCounter = ({
   };
 
   const handleAdd = () => {
-    if (value < max) {
-      setValue(value + 1);
+    setValue(value + 1);
+    if (max && value >= max) {
+      setValue(max);
     }
   };
 
