@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 import {
   Box,
-  Typography
 } from "@mui/material";
 
 import ValueCounter from '../../components/ValueCounter'
+import { QuickButton } from "../../components/QuickButton";
 
 export const Energy = () => {
   const [energy, setEnergy] = useState(6);
@@ -31,20 +31,17 @@ export const Energy = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        padding: 2,
       }}
     >
-      <Typography
-        variant="h5"
-      >
-        <ValueCounter
-          min={0}
-          max={10}
-          color="blue"
-          counterName="Energy"
-          value={energy}
-          setValue={setEnergy}
-        />
-      </Typography>
+      <ValueCounter
+        min={0}
+        max={10}
+        color="blue"
+        counterName="Energy"
+        value={energy}
+        setValue={setEnergy}
+      />
       <Box
         style={{
           width: "100%",
@@ -53,8 +50,16 @@ export const Energy = () => {
           justifyContent: "center",
         }}
       >
-        <button onClick={addFour}>+ Add 4</button>
-        <button onClick={resetEnergy}>Reset Energy</button>
+        <QuickButton
+          buttonAction={addFour}
+          buttonLabel="ADD FOUR"
+          color="blue"
+        />
+        <QuickButton
+          buttonAction={resetEnergy}
+          buttonLabel="RESET ENERGY"
+          color="blue"
+        />
       </Box>
     </Box>
   )

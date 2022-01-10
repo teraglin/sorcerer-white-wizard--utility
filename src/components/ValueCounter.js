@@ -11,6 +11,16 @@ const ValueCounter = ({
   value,
   setValue
 }) => {
+  const buttonStyle = {
+    width: 50,
+    height: 50,
+    color: "white",
+    background: color,
+    border: "none",
+    borderRadius: "200px",
+    cursor: "pointer",
+  }
+
   const handleSubtract = () => {
     if (value > min) {
       setValue(value - 1);
@@ -26,27 +36,47 @@ const ValueCounter = ({
 
   return (
     <Box
-    style={{
-      width: "100%",
-      display: "flex",
-      flexDirection: "row",
-      color: color,
-      justifyContent: "center",
-      alignItems: "center",
-    }}
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        color: color,
+        justifyContent: "center",
+        alignItems: "center",
+        paddingBottom: 5,
+      }}
     >
-      <button onClick={handleSubtract}>
-        -
-      </button>
-      <Typography
-      variant="body1"
-      style={{textAlign: "center"}}
-      >
-        {counterName}: {value}
+      <Typography variant="h5">
+        {counterName}
       </Typography>
-      <button onClick={handleAdd}>
-        +
-      </button>
+      <Box
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+        }}
+      >
+
+        <button
+          onClick={handleSubtract}
+          style={buttonStyle}
+        >
+          -
+        </button>
+        <Typography
+          variant="h5"
+          style={{ textAlign: "center" }}
+        >
+          {value}
+        </Typography>
+        <button
+          onClick={handleAdd}
+          style={buttonStyle}
+        >
+          +
+        </button>
+      </Box>
     </Box>
   )
 }

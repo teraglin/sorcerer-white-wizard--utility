@@ -3,10 +3,10 @@ import React, { useState } from "react";
 
 import {
   Box,
-  Typography
 } from "@mui/material";
 
 import ValueCounter from '../../components/ValueCounter'
+import { QuickButton } from "../../components/QuickButton";
 
 export const Omens = () => {
   const [omens, setOmens] = useState(1);
@@ -22,11 +22,9 @@ export const Omens = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        padding: 2,
       }}
     >
-      <Typography
-        variant="h5"
-      >
         <ValueCounter
           min={0}
           max={undefined}
@@ -35,7 +33,6 @@ export const Omens = () => {
           value={omens}
           setValue={setOmens}
         />
-      </Typography>
       <Box
         style={{
           width: "100%",
@@ -44,7 +41,11 @@ export const Omens = () => {
           justifyContent: "center",
         }}
       >
-        <button onClick={resetOmens}>Reset Omens</button>
+        <QuickButton
+          buttonAction={resetOmens}
+          buttonLabel="RESET OMENS"
+          color="grey"
+        />
       </Box>
     </Box>
   )

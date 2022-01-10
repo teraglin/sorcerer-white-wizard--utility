@@ -1,4 +1,4 @@
-import { Box } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 
 
 export const RoundOverview = () => {
@@ -8,7 +8,6 @@ export const RoundOverview = () => {
       <Typography variant="h4">
         Ready Phase
       </Typography>
-      <
 
       </Box>
     </Box>

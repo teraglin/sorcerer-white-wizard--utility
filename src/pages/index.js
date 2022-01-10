@@ -5,9 +5,7 @@ import {
 } from "@mui/material";
 
 import { GameDisplay } from "../services/display/Header";
-import { Energy } from "../services/counters/Energy";
-import { Actions } from "../services/counters/Action";
-import { Omens } from "../services/counters/Omens";
+import { GameCounters } from "../services/counters/GameCounters";
 
 const MainPage = (props) => {
   const { mobileView } = props;
@@ -20,18 +18,7 @@ const MainPage = (props) => {
       }}
     >
       <GameDisplay />
-      <Box
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: mobileView ? "column" : "row",
-        }}
-      >
-        <Energy />
-        <Actions />
-        <Omens />
-      </Box>
+      <GameCounters mobileView={mobileView} />
     </Box>
   )
 }
