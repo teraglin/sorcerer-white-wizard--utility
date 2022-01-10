@@ -1,35 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
   Box,
-  Typography,
 } from "@mui/material";
 
 import { GameDisplay } from "../services/display/GameDisplay";
+import { Energy } from "../services/energy/Energy";
+import { Actions } from "../services/action/Action";
 
-const MainPage = () => {
-  const [energyNum, setEnergyNum] = useState(0)
+const MainPage = (props) => {
+  const { mobileView } = props;
 
   return (
     <Box
-     style={{
-       width: "100%",
-       height: "100%",
-     }}
+      style={{
+        width: "100%",
+        height: "100%",
+      }}
     >
-      <GameDisplay
-        energyNum={energyNum}
-      />
+      <GameDisplay />
       <Box
-      sx={{bgcolor: energyNum === 1 ? "blue" : undefined}}
-      style={{cursor: 'pointer'}}
-      onClick={() => setEnergyNum(1)}
-      >1</Box>
-      <Box
-      sx={{bgcolor: energyNum === 0 ? "blue" : undefined}}
-      style={{cursor: 'pointer'}}
-      onClick={() => setEnergyNum(0)}
-      >0</Box>
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: mobileView ? "column" : "row",
+        }}
+      >
+        <Energy />
+        <Actions />
+      </Box>
     </Box>
   )
 }

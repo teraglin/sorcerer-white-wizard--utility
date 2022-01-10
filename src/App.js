@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react'
+
 import './App.css';
 
 import { Box } from '@mui/material';
@@ -5,6 +7,23 @@ import { Box } from '@mui/material';
 import MainPage from './pages/index';
 
 function App() {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [mobileView, setMobileView] = useState(null);
+  
+  const screenBreakPoint = 830;
+  
+  useEffect(() => {
+    window.addEventListener("resize", () => setScreenWidth(window.innerWidth));
+  }, []);
+  
+  useEffect(() => {
+    if (screenWidth < screenBreakPoint) {
+      setMobileView(true)
+    } else {
+      setMobileView(false)
+    }
+  }, [screenWidth]);
+
   return (
     <Box
       style={{
@@ -16,7 +35,7 @@ function App() {
         alignItems: "center",
       }}
     >
-      <MainPage />
+      <MainPage mobileView={mobileView} />
     </Box>
   );
 }

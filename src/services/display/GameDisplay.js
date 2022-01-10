@@ -1,10 +1,6 @@
 import { Box, Typography } from "@mui/material"
 
-export const GameDisplay = (props) => {
-  const {
-    energyNum
-  } = props;
-
+export const GameDisplay = () => {
   return (
     <Box
       style={{
@@ -13,48 +9,20 @@ export const GameDisplay = (props) => {
         flexDirection: "column",
       }}
     >
-      <Box>
-        <Typography
-          variant="h3"
-          style={{ textAlign: "center" }}
-        >
-          HEADING
-        </Typography>
-        <Typography
-          variant="h5"
-          style={{ textAlign: "center" }}
-        >
-          VICTORIES
-        </Typography>
-      </Box>
-      <Box
-        style={{
-          width: "100",
-          display: "flex",
-          flexDirection: "row",
-        }}
+
+      <Typography
+        variant="h3"
+        style={{ textAlign: "center" }}
       >
-        <Box
-          style={{
-            width: "50%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Typography>ENERGY: {energyNum}</Typography>
-        </Box>
-        <Box
-          style={{
-            width: "50%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Typography>ACTION</Typography>
-        </Box>
-      </Box>
+        Sorcerer Playmat
+      </Typography>
+      <Typography
+        variant="h5"
+        style={{ textAlign: "center" }}
+      >
+        VICTORIES
+      </Typography>
+
     </Box>
   )
 }
