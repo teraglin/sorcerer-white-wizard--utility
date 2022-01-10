@@ -1,24 +1,42 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react'
+
 import './App.css';
 
+import { Box } from '@mui/material';
+
+import MainPage from './pages/index';
+
 function App() {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [mobileView, setMobileView] = useState(null);
+  
+  const screenBreakPoint = 830;
+  
+  useEffect(() => {
+    window.addEventListener("resize", () => setScreenWidth(window.innerWidth));
+  }, []);
+  
+  useEffect(() => {
+    if (screenWidth < screenBreakPoint) {
+      setMobileView(true)
+    } else {
+      setMobileView(false)
+    }
+  }, [screenWidth]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box
+      style={{
+        width: "100vw",
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <MainPage mobileView={mobileView} />
+    </Box>
   );
 }
 
